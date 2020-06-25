@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>moore</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>107.0</x>
+			<y>291.0</y>
+			<initial/>
+			<output/>
+		</state>
+		<state id="1" name="q1">
+			<x>281.0</x>
+			<y>85.0</y>
+			<output/>
+		</state>
+		<state id="2" name="q2">
+			<x>551.0</x>
+			<y>416.0</y>
+			<output>automato ident</output>
+		</state>
+		<state id="3" name="q3">
+			<x>551.0</x>
+			<y>216.0</y>
+			<output>automato chr</output>
+		</state>
+		<state id="4" name="q4">
+			<x>550.0</x>
+			<y>303.0</y>
+			<output>automato number</output>
+		</state>
+		<state id="5" name="q5">
+			<x>550.0</x>
+			<y>84.0</y>
+			<output>erro ("erro comentario")</output>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>0</from>
+			<to>3</to>
+			<read>outro</read>
+			<transout>automato chr</transout>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>{</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>0</to>
+			<read>}</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>caracter</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>2</to>
+			<read>digito</read>
+			<transout>automato ident</transout>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>5</to>
+			<read>fim do arquivo</read>
+			<transout>erro ("erro comentario")</transout>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>0</to>
+			<read>\n | \t | ' '</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>4</to>
+			<read>letra</read>
+			<transout>automato number</transout>
+		</transition>
+	</automaton>
+</structure>

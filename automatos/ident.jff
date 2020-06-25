@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>moore</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>139.0</x>
+			<y>241.0</y>
+			<initial/>
+			<output/>
+		</state>
+		<state id="1" name="q1">
+			<x>403.0</x>
+			<y>239.0</y>
+			<output/>
+		</state>
+		<state id="2" name="q2">
+			<x>941.0</x>
+			<y>75.0</y>
+			<output>retornar(cadeia, IDENT); retornar caracter</output>
+		</state>
+		<state id="3" name="q3">
+			<x>933.0</x>
+			<y>230.0</y>
+			<output>erro ("identificador mal construido")</output>
+		</state>
+		<state id="4" name="q4">
+			<x>933.0</x>
+			<y>384.0</y>
+			<output>erro ("identificador muito grande")</output>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>caracter final</read>
+			<transout>retornar(cadeia, IDENT); retornar caracter</transout>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>letra|digito</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>cadeia &gt; 16</read>
+			<transout>erro ("identificador muito grande")</transout>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>letra</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read>caractere não pertencente a linguagem</read>
+			<transout>erro ("identificador mal construido")</transout>
+		</transition>
+	</automaton>
+</structure>

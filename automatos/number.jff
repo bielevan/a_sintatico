@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>moore</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="0" name="q0">
+			<x>228.0</x>
+			<y>343.0</y>
+			<initial/>
+			<output/>
+		</state>
+		<state id="1" name="q1">
+			<x>414.0</x>
+			<y>342.0</y>
+			<output/>
+		</state>
+		<state id="2" name="q2">
+			<x>236.0</x>
+			<y>151.0</y>
+			<output>retornar(cadeia, inteiro); retornar caracter</output>
+		</state>
+		<state id="3" name="q3">
+			<x>641.0</x>
+			<y>50.0</y>
+			<output>erro ("numero mal construido")</output>
+		</state>
+		<state id="4" name="q4">
+			<x>640.0</x>
+			<y>561.0</y>
+			<output>erro ("numero muito grande")</output>
+		</state>
+		<state id="5" name="q5">
+			<x>862.0</x>
+			<y>339.0</y>
+			<output/>
+		</state>
+		<state id="6" name="q6">
+			<x>1277.0</x>
+			<y>332.0</y>
+			<output>retornar(cadeia, real); retornar caractere</output>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read>caracter final | ' ' | \n | \t</read>
+			<transout>retornar(cadeia, inteiro); retornar caracter</transout>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>4</to>
+			<read>cadeia &gt; 16</read>
+			<transout>erro ("numero muito grande")</transout>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>numero</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>numero</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>6</to>
+			<read>caracter final | ' ' | \n | \t</read>
+			<transout>retornar(cadeia, real); retornar caractere</transout>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>3</to>
+			<read>caracter não pertence a linguagem</read>
+			<transout>erro ("numero mal construido")</transout>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>cadeia &gt; 16</read>
+			<transout>erro ("numero muito grande")</transout>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>numero</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>5</to>
+			<read>'.'</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read>caractere não pertencente a linguagem</read>
+			<transout>erro ("numero mal construido")</transout>
+		</transition>
+	</automaton>
+</structure>
